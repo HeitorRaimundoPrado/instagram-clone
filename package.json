@@ -20,10 +20,12 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@prisma/client": "5.4.1",
     "@t3-oss/env-nextjs": "^0.7.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "next": "13.5.4",
+    "prisma": "^5.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwind-merge": "^1.14.0",
