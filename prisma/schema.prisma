@@ -3,8 +3,8 @@
 
 model User {
   id Int @id @default(autoincrement())
-  email String
-  username String
+  email String @unique
+  username String @unique
   passwordHash String
   posts Post[]
   replies Reply[]
