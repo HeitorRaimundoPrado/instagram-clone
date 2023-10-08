@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-var-requires: "off" */
 import prisma from "../../../../prisma/client"
 const bcrypt = require("bcryptjs")
 
