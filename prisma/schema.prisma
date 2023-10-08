@@ -10,6 +10,8 @@ model User {
   replies Reply[]
   followers User[] @relation("follows")
   follows User[] @relation("follows")
+  likedPosts Post[] @relation("postLikes")
+  liked Reply[] @relation("replyLikes")
 }
 
 model Post {
@@ -19,6 +21,7 @@ model Post {
   content String
   attachedFile String
   replies Reply[]
+  likes User[] @relation("postLikes")
 }
 
 model Reply {
@@ -28,6 +31,7 @@ model Reply {
   content String
   user User @relation(fields: [userId], references: [id])
   userId Int
+  likes User[] @relation("replyLikes")
 }
 
 generator client {
