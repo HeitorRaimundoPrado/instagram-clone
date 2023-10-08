@@ -43,7 +43,7 @@ export async function POST(req: Request) {
 
     try {
       const match = await new Promise((resolve, reject) => {
-        bcrypt.compare(password, user.passwordHash, function(err: any, r: any): any {
+        bcrypt.compare(password, user.passwordHash, function(err: string, r: boolean) {
           if (err) {
             reject(err)
           }

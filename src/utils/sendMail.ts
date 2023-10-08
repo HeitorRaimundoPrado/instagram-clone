@@ -1,6 +1,5 @@
-import nodemailer from 'nodemailer'
-
 import * as handlebars from "handlebars"
+import nodemailer from 'nodemailer'
 
 export default async function sendMail(
   to: string,
@@ -23,7 +22,7 @@ export default async function sendMail(
   console.log(SMTP_HOST)
   console.log(SMTP_PASSWORD)
 
-  let transporter = await nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     port: Number(SMTP_PORT),
     host: SMTP_HOST,
     auth: {
@@ -41,7 +40,7 @@ export default async function sendMail(
 
   const html = data(replacements);
   await new Promise((resolve, reject) => {
-    transporter.verify((error: any, success: any) => {
+    transporter.verify((error, success) => {
       if (error) {
         console.log(error);
         reject(error);
@@ -60,7 +59,7 @@ export default async function sendMail(
   }
 
   await new Promise((resolve, reject) => {
-    transporter.sendMail(options, (err: any, info: any) => {
+    transporter.sendMail(options, (err, info) => {
       if (err) {
         console.log(err);
         reject(err)
