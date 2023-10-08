@@ -1,9 +1,8 @@
 
 import prisma from "../../../../prisma/client"
-import bcrypt from 'bcryptjs'
-import { createHash } from 'node:crypto'
-import jwt from 'jsonwebtoken'
-import cookie from 'cookie'
+const bcrypt = require("bcryptjs")
+const cookie = require("cookie")
+const jwt = require("jsonwebtoken")
 
 const generateToken = (userId: number) => {
   const token = jwt.sign({ userId }, process.env.SECRET_KEY_NEXT, { expiresIn: '1h' })

@@ -1,5 +1,5 @@
 import prisma from "../../../../prisma/client"
-import bcrypt from 'bcryptjs'
+const bcrypt = require("bcryptjs")
 
 export async function POST(req: Request) {
   try {
